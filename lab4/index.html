@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="description" content="Hugo를 이용한 워크샵 문서 만들기">
+<meta name="author" content="Hyuna Jung">
+
+    <link rel="icon" href="/webbasedworkshop/images/favicon.png" type="image/png">
+
+    <title>실습5. 알람 생성 :: Web-based 워크샵 문서 만들기</title>
+
+    
+    <link href="/webbasedworkshop/css/nucleus.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/fontawesome-all.min.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/hybrid.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/featherlight.min.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/perfect-scrollbar.min.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/auto-complete.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/atom-one-dark-reasonable.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/theme.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/hugo-theme.css?1622006050" rel="stylesheet">
+    
+      <link href="/webbasedworkshop/css/theme-aws.css?1622006050" rel="stylesheet">
+    
+
+    <script src="/webbasedworkshop/js/jquery-3.3.1.min.js?1622006050"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/webbasedworkshop/lab4/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/webbasedworkshop">
+	<img src="/webbasedworkshop/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/webbasedworkshop/js/lunr.min.js?1622006050"></script>
+<script type="text/javascript" src="/webbasedworkshop/js/auto-complete.js?1622006050"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/webbasedworkshop\/";
+    
+</script>
+<script type="text/javascript" src="/webbasedworkshop/js/search.js?1622006050"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab-intro/" title="소개" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab-intro/">
+          <b>0. </b>소개
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab0/" title="실습1. CloudWatch Handson Lab" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab0/">
+          <b>1. </b>실습1. CloudWatch Handson Lab
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab1/" title="실습2. 시나리오 설정" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab1/">
+          <b>2. </b>실습2. 시나리오 설정
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab2/" title="실습3. 원격 분석 수집" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab2/">
+          <b>3. </b>실습3. 원격 분석 수집
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab3/" title="실습4. 로그에서 metrics 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab3/">
+          <b>4. </b>실습4. 로그에서 metrics 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab4/" title="실습5. 알람 생성" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/webbasedworkshop/lab4/">
+          <b>5. </b>실습5. 알람 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab5/" title="실습6. 응답 자동화" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab5/">
+          <b>6. </b>실습6. 응답 자동화
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab6/" title="실습7. 실습환경 클린업" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab6/">
+          <b>7. </b>실습7. 실습환경 클린업
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/webbasedworkshop/credits/"><i class='fas fa-fw fa-bullhorn'></i> 크레딧</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/webbasedworkshop/'>홈</a> > 실습5. 알람 생성
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#알람생성하기">알람생성하기</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              실습5. 알람 생성
+            </h1>
+          
+
+        
+
+
+
+
+	<h3 id="알람생성하기">알람생성하기</h3>
+<ol>
+<li>알림을 받고 싶은 매트릭에 대하여 경보 수준을 설정하고 알람을 받습니다.</li>
+</ol>
+<p><strong>Create alarms</strong></p>
+<p><strong>메트릭에서 알려진 문제에 대한 경보 생성</strong>
+​
+애플리케이션 결과 모니터링 Ryn Brandish는 애플리케이션 문제가 있고 보안에 대해 염려하는 경우를 파악하고자 합니다. 그는 오류와 경고에 대한 측정 기준을 원합니다. ExampleCorp에는 이미지 크기에 대한 제한이 있어 성공적으로 처리할 수 있습니다. 이 문제는 자주 발생하지는 않지만 고객을 만족시키지는 않습니다. 제출된 이미지에 대한 오류율을 인식하면 비즈니스 및 개발 팀은 이미지 크기를 늘리는 것이 우선되어야 하는지 여부를 결정할 수 있습니다. 현재 대부분의 경고는 보안 문제와 관련되어 있습니다. Ryn은 얼마나 자주 그 경고들이 일어나는지에 대한 가시성을 원합니다.</p>
+<p><strong>5.1 오류에 대해 정의된 임계값을 기준으로 로그 필터 메트릭 생성</strong></p>
+<ol>
+<li>Click on Log Groups in the breadcrumb trail at the top of the screen</li>
+<li>Select the application.log log group</li>
+<li>Click on the Create Metric Filter button</li>
+<li>Enter “ActiveStorage::InvariableError” (include quotes) for Filter Pattern. This is a known error that we will cause later in the lab.</li>
+<li>Click on the Assign Metric button</li>
+<li>Enter ImageError as the Metric Name</li>
+<li>Click on the Create Filter button <img src="images/Aspose.Words.6ae51449-4f5a-4d5b-9bf8-6ebed332625d.001.jpeg" alt="Image Error Metric"></li>
+</ol>
+<p><strong>5.2 메트릭 임계값을 초과할 때 오류에 대한 경보를 생성합니다.</strong></p>
+<ol>
+<li>Click on Create Alarm</li>
+<li>Click Edit by Metric <img src="images/Aspose.Words.6ae51449-4f5a-4d5b-9bf8-6ebed332625d.002.jpeg" alt="Edit Metric"></li>
+<li>Change Period to 10 seconds</li>
+<li>Click on Select metric button
+<ol>
+<li>Enter ImageErrorAlarm for Name</li>
+<li>After is &gt;=, change the 0 to 1</li>
+<li>Select good (not breaching threshold) for Treat missing data as</li>
+<li>Under Actions Select from the Drop Down the ExampleCorpErrorNotify* list to Send notifications to</li>
+<li>Enter [your email address] for Email list <img src="images/Aspose.Words.6ae51449-4f5a-4d5b-9bf8-6ebed332625d.003.jpeg" alt="Create Alarm"></li>
+</ol>
+</li>
+<li>Click on the Create Alarm button</li>
+<li>Click on the I will do it later button when asked to verify the email address</li>
+</ol>
+<p><strong>NOTE:</strong> You should see that the alarm has insufficient data with a 1 next to INSUFFICIENT in the navigation menu. This will change to OK within a few seconds.</p>
+<p><strong>5.3 사용자 활동을 통해 오류 로그 생성</strong></p>
+<ol>
+<li>Navigate to the ExampleCorp using the URL that you made a note of earlier (CloudFormation Output).</li>
+<li>Enter <a href="mailto:admin@admin.com">admin@admin.com</a> for email</li>
+<li>Enter Password123 for Password</li>
+<li>Click Login</li>
+<li>Click Upload Image Click Select Image</li>
+<li>Find break_app.jpg in your filesystem</li>
+<li>Click Upload</li>
+</ol>
+<p><strong>NOTE:</strong> The application will start exhibiting issues, and the application will eventually fail to load.</p>
+<p><strong>5.4 로그를 검토하여 오류 식별</strong></p>
+<ol>
+<li>Navigate to the CloudWatch Console</li>
+<li>Click Logs in the navigation menu</li>
+<li>Click on application.log log group - this is from /opt/ExampleCorp/log/application.log as configured earlier in the CloudWatch agent configuration.</li>
+<li>Click on the Search Log Group button</li>
+<li>Enter ERROR (case sensitive) and hit enter.</li>
+<li>You will see errors ending ActiveStorage::InvariableError. This is an error that is generated when a user uploads a non-image file. This is a known issue, but the Dev team has not had cycles to adress it.</li>
+</ol>
+<p><strong>Build a Monitoring Plan: Alerting and Response</strong></p>
+<p>Monitoring for Operational Outcomes Sansa Bailish is focused on outages, reliability, and getting better sleep. There is a known issue with image trends; when the instances are rebooted the application doesn’t restart. Too frequently Sansa has received a late night call to get online and restart the application. The user experience lead is very frustrated with the downtime associated to these incidents. They need to be detected sooner and resolved faster.</p>
+<p>Sansa is looking for a monitoring solution to detect the incident (the reboot event), and a way to trigger an automated recovery.</p>
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/webbasedworkshop/lab3/" title="실습4. 로그에서 metrics 생성"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/webbasedworkshop/lab5/" title="실습6. 응답 자동화" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/webbasedworkshop/js/clipboard.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/perfect-scrollbar.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/perfect-scrollbar.jquery.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/jquery.sticky.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/featherlight.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/highlight.pack.js?1622006050"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/webbasedworkshop/js/modernizr.custom-3.6.0.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/learn.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/hugo-learn.js?1622006050"></script>
+
+    <link href="/webbasedworkshop/mermaid/mermaid.css?1622006050" rel="stylesheet" />
+    <script src="/webbasedworkshop/mermaid/mermaid.js?1622006050"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>
