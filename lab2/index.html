@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="description" content="Hugo를 이용한 워크샵 문서 만들기">
+<meta name="author" content="Hyuna Jung">
+
+    <link rel="icon" href="/webbasedworkshop/images/favicon.png" type="image/png">
+
+    <title>실습3. 원격 분석 수집 :: Web-based 워크샵 문서 만들기</title>
+
+    
+    <link href="/webbasedworkshop/css/nucleus.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/fontawesome-all.min.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/hybrid.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/featherlight.min.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/perfect-scrollbar.min.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/auto-complete.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/atom-one-dark-reasonable.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/theme.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/hugo-theme.css?1622006050" rel="stylesheet">
+    
+      <link href="/webbasedworkshop/css/theme-aws.css?1622006050" rel="stylesheet">
+    
+
+    <script src="/webbasedworkshop/js/jquery-3.3.1.min.js?1622006050"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/webbasedworkshop/lab2/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/webbasedworkshop">
+	<img src="/webbasedworkshop/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/webbasedworkshop/js/lunr.min.js?1622006050"></script>
+<script type="text/javascript" src="/webbasedworkshop/js/auto-complete.js?1622006050"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/webbasedworkshop\/";
+    
+</script>
+<script type="text/javascript" src="/webbasedworkshop/js/search.js?1622006050"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab-intro/" title="소개" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab-intro/">
+          <b>0. </b>소개
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab0/" title="실습1. CloudWatch Handson Lab" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab0/">
+          <b>1. </b>실습1. CloudWatch Handson Lab
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab1/" title="실습2. 시나리오 설정" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab1/">
+          <b>2. </b>실습2. 시나리오 설정
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab2/" title="실습3. 원격 분석 수집" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/webbasedworkshop/lab2/">
+          <b>3. </b>실습3. 원격 분석 수집
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab3/" title="실습4. 로그에서 metrics 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab3/">
+          <b>4. </b>실습4. 로그에서 metrics 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab4/" title="실습5. 알람 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab4/">
+          <b>5. </b>실습5. 알람 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab5/" title="실습6. 응답 자동화" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab5/">
+          <b>6. </b>실습6. 응답 자동화
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab6/" title="실습7. 실습환경 클린업" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab6/">
+          <b>7. </b>실습7. 실습환경 클린업
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/webbasedworkshop/credits/"><i class='fas fa-fw fa-bullhorn'></i> 크레딧</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/webbasedworkshop/'>홈</a> > 실습3. 원격 분석 수집
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#원격-분석-수집">원격 분석 수집</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              실습3. 원격 분석 수집
+            </h1>
+          
+
+        
+
+
+
+
+	<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="원격-분석-수집">원격 분석 수집</h3>
+<p><strong>모니터링 계획 구현 : 원격 측정</strong></p>
+<p>고려 : 목표를 달성하기 위해 어떤 원격 분석을 활용할 수 있습니까? 우리가 가지고 있지 않은 바람직한 원격 측정이 있습니까? 그렇다면 어떻게 얻을 수 있습니까? 필요한 정보를 생성하도록 애플리케이션을 추가로 instrument할 수 있습니까? 필요한 정보를 제공하도록 인프라를 구성할 수 있습니까? (인스트루먼테이션 : 오류를 진단하거나 추적 정보를 쓰기 위해 제품의 성능 정도를 모니터 하거나 측정하는 기능)</p>
+<p>우리의 워크로드는 운영이 워크로드 상태와 비즈니스 성과 달성을 이해할 수 있도록 데이터를 생성해야 합니다. 우리는 그 정보를 수집하고 분석한 다음 우리 조직의 이익을 극대화하기 위해 조치를 취해야합니다. 분석이나 조치없이 수집하는 경우, 기껏해야 사건 이후에나 사용할 수 있는 기록을 forensic capacity로 저장하기 위해 비용을 지불해야 합니다. 우리의 목표는 통찰력을 얻는 것입니다.</p>
+<p>통찰력의 범주 :</p>
+<ul>
+<li>Faults</li>
+<li>Configuration</li>
+<li>Accounting</li>
+<li>Performance</li>
+<li>Security</li>
+<li>Outcomes</li>
+<li>User Behavior</li>
+<li>Workload Behavior</li>
+</ul>
+<p>우리는 이해 관계자 참여, 요구 사항 및 우선 순위 결정, 모니터링 개선 구현, 성공 평가를 반복합니다. 또는 더 간단하게 말하면 : 계획을 만들고, 계획을 실행하고, 계획이 작동하는지 확인하고, 계획을 조정하는 것을 반복하십시오.</p>
+<p><strong>3 원격 측정 획득</strong></p>
+<p>3 가지 목표에 초점을 맞춰 시작하겠습니다.</p>
+<ul>
+<li>우리의 애플리케이션 디렉터인 Grace Hopper는 우리의 production application이 고객을 기쁘게하고 있다는 것을 알고 싶어합니다.</li>
+<li>DevOps 엔지니어인 Blaise Pascal은 애플리케이션 문제가 발생할 경우와 보안 문제가 우려되는 시기를 파악하고자 합니다.</li>
+<li>Site Reliability Engineer인 Charles Babbage는 정전, 안정성 및 sleep(항상 페이저를 받기 때문에) 개선에 중점을 둡니다.</li>
+</ul>
+<p><strong>3.1 CloudWatch Agent 설치 및 구성</strong></p>
+<p>CloudWatch Agent를 사용하여 Amazon EC2 인스턴스에서 지표와 로그를 수집합니다. 온-프레미스 서버가 있는 경우 CloudWatch Agent를 사용하여 해당 서버에서 지표와 로그를 캡처할 수도 있습니다.</p>
+<p>CloudWatch Agent는 CloudFormation 스크립트 실행으로 생성된 IAM 역할이 필요합니다. Agent를 설치한 다음 CloudFormation 스크립트에 의해 System Manager Parameter Store에 배치된 사전 정의된 구성을 사용하여 구성합니다.
+Parameter Store의 구성을 통해 우리는 그것을 우리의 fleet에 표준으로 쉽게 적용할 수 있습니다. 다음을 따라 더 자세히 알아볼 수 있습니다. <a href="/https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-first-instance.html"><em>Getting Started</em></a> link.</p>
+<p><strong>3.2 Parameter Store configuration 검토</strong></p>
+<p>Parameter Store에 있는 구성 파일은 CloudWatchAgentServerPolicy IAM 역할을 활용할 수 있도록 하는 필수 명명 규칙 (AmazonCloudWatch-로 시작해야 함)을 따릅니다. 관리를 단순화합니다. 여기에서 더 많은 것을 배울 수 있습니다. <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-iam-roles-for-cloudwatch-agent.html">link</a></p>
+<ol>
+<li>System Manager 콘솔에서 <strong>Parameter Store</strong>를 클릭하여 엽니다. <a href="https://console.aws.amazon.com/systems-manager/parameters">link</a>.</li>
+<li><strong>AmazonCloudWatch-ExampleCorpConfig</strong>를 선택합니다.</li>
+<li>CloudWatch Logs에 수집될 로그 검토</li>
+</ol>
+<p><strong>3. Install and Configure the CloudWatch agent Systems Manager Run Command</strong></p>
+<p>System Manager의 Run Command를 사용하여 단일 인스턴스에 설치하는 것처럼 쉽게 전체 집합에 CloudWatch agent를 설치하고 구성할 수 있습니다. command document를 사용하여 일관된 실행을 보장하고 수동 프로세스로 인해 발생할 수 있는 오류를 제한합니다.</p>
+<ol>
+<li>링크를 클릭하여 Systems Manager 콘솔 <strong>Run Command</strong> 페이지로 이동합니다. <a href="https://console.aws.amazon.com/systems-manager/run-command">link</a>.</li>
+<li><strong>Run command</strong>를 선택합니다.
+<ol>
+<li>In the <strong>Command document</strong> list, select <strong>AWS-ConfigureAWSPackage</strong> by selecting the radio button next to it.</li>
+<li>In the <strong>Action</strong> list, choose <strong>Install</strong>.</li>
+<li>In the <strong>Name</strong> field, type <strong>AmazonCloudWatchAgent</strong></li>
+<li>In the <strong>Version</strong> field, type <em>latest</em>. <img src="images/Aspose.Words.d57cf7a6-dcd1-4830-a1d3-c826042321a9.001.jpeg" alt="Command Parameters">
+cwagenttargets</li>
+<li>In the <strong>Targets</strong> area, Manually select the ExampleCorp instances. You could also target instances by tag. <img src="images/Aspose.Words.d57cf7a6-dcd1-4830-a1d3-c826042321a9.002.jpeg" alt="Command Parameters"></li>
+<li>In the <strong>Output options</strong> area uncheck the box next to <strong>Enable an S3 bucket</strong>, area check the box next to <strong>Enable CloudWatch logs</strong>..</li>
+<li>Choose <strong>Run</strong>.</li>
+</ol>
+</li>
+<li>Optionally, in the <strong>Targets and outputs</strong> areas, select the button next to an instance name and choose <strong>View output</strong>. Systems Manager should show that the agent was successfully installed.</li>
+</ol>
+<p><strong>3.3 Configure and (re)start the CloudWatch agent using Systems Manager Run Command</strong></p>
+<ol>
+<li>Open Run Command in the Systems Manager console by clicking on this <a href="https://console.aws.amazon.com/systems-manager/run-command">link</a>.</li>
+<li>Choose <strong>Run command</strong>.
+<ol>
+<li>In the Command document list, (list에서 4 page 정도 선택) select <strong>AmazonCloudWatch-ManageAgent</strong> by selecting the radio button next to it.</li>
+<li>In the <strong>Command Parameters</strong> area
+<ol>
+<li>In the <strong>Action</strong> list, choose the default <strong>configure</strong>.</li>
+<li>In the <strong>Mode</strong> list, choose the default <strong>ec2</strong></li>
+<li>In the <strong>Optional Configuration Source</strong> list, choose the default ssm.</li>
+<li>In the <strong>Optional Configuration Location</strong> box, type the name of the agent configuration file that we created and saved to Systems Manager Parameter Store <em>AmazonCloudWatch-ExampleCorpConfig</em> <img src="images/Aspose.Words.d57cf7a6-dcd1-4830-a1d3-c826042321a9.003.jpeg" alt="Command Parameters"></li>
+</ol>
+</li>
+<li>In the <strong>Optional Restart</strong> list, choose <strong>yes</strong> to start the agent after you have finished these steps.</li>
+<li>In the <strong>Targets</strong> area, choose the instance where you installed the CloudWatch agent.</li>
+<li>In the <strong>Output options</strong> area uncheck the box next to <strong>Enable an S3 bucket</strong>, area check the box next to <strong>Enable CloudWatch logs</strong>.</li>
+</ol>
+</li>
+<li>Choose <strong>Run</strong>.</li>
+<li>Optionally, in the Targets and outputs areas, select the button next to an instance name and choose View output. Systems Manager should show that the agent was successfully started</li>
+</ol>
+<p>통합 CloudWatch Agent를 사용하여 로그 및 지표를 수집하는 방법에 대해 자세히 알고 싶으십니까? Follow this <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html">link</a>.</p>
+<p>(Optional Exercise) Review the Collected Application Logs [with the development team]</p>
+<p>비즈니스, 개발 및 운영팀이 더 통합 될수록 더 성공적일 것입니다. 맞춤형으로 개발된 애플리케이션은 다양한 로그를 내 보냅니다. 개발자가 콘텐츠, 의미 및 목적에 대한 통찰력을 얻도록 참여하면 모니터링에서 가치를 얻는 데 걸리는 시간이 단축됩니다.</p>
+<ol>
+<li>Navigate to the CloudWatch Logs dashboard at this <a href="https://console.aws.amazon.com/cloudwatch/home#logs:">link</a>.</li>
+<li>Choose application.log from the Log Groups list</li>
+<li>Choose the Log Stream of your instance</li>
+<li>Review the available logs</li>
+</ol>
+<p><strong>3.4 Generate logs through user activity</strong></p>
+<ol>
+<li>In a web browser navigate to the URL Output of the Example Corp CloudFormation Stack to reach the ExampleCorp application
+<img src="images/Aspose.Words.d57cf7a6-dcd1-4830-a1d3-c826042321a9.004.jpeg" alt="CloudFormation Output"></li>
+<li>Create an account by choosing Sign up and then choosing login at the Log in page.
+<ol>
+<li>Enter an Email address, a Username, and a Password and choose Sign up</li>
+<li>There is no validation on the email address you provide so you may use a fake address</li>
+</ol>
+</li>
+<li>Upload some photos
+<ol>
+<li>you can either use your own photos or</li>
+<li><a href="https://s3.amazonaws.com/www.awsmanagementweek.com/sample-photos.zip"><strong>download sample photos here</strong></a> <strong>Note:</strong> There are 76MB of images</li>
+</ol>
+</li>
+<li>Navigate to the CloudWatch Logs dashboard at this <a href="https://console.aws.amazon.com/cloudwatch/home#logs:">link</a>.
+<ol>
+<li>Choose application.log from the Log Groups list</li>
+<li>Choose the Log Stream of an instance</li>
+<li>At the top right of the grey field, in the time window definition box, choose the pull down.</li>
+<li>Choose to Relative, by clicking on the term.</li>
+<li>Choose 2 Hours <img src="images/Aspose.Words.d57cf7a6-dcd1-4830-a1d3-c826042321a9.005.jpeg" alt="CloudFormation Output"></li>
+<li>Review the recent logs. Enter a Tag value identified by ExampleCorp in the Filter Events text box and review the associated logs.</li>
+</ol>
+</li>
+</ol>
+<p><strong>(Optional) 3.5 Publish VPC Flow Logs to CloudWatch Logs</strong></p>
+<p><a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-cwl.html">VPC 흐름 로그를 CloudWatch Logs로 변환</a>, 흐름 로그 데이터가 로그 그룹에 게시되고 각 네트워크 인터페이스가 로그 그룹에 고유한 로그 스트림을 갖는 경우). 로그 스트림에는 흐름 로그 레코드가 포함됩니다. 데이터를 동일한 로그 그룹에 게시하는 여러 흐름 로그를 생성할 수 있습니다. 동일한 네트워크 인터페이스가 동일한 로그 그룹의 하나 이상의 흐름 로그에 있는 경우 하나의 결합된 로그 스트림을 가집니다. 하나의 흐름 로그가 거부된 트래픽을 캡처하고 다른 흐름 로그가 승인된 트래픽을 캡처하도록 지정한 경우 결합된 로그 스트림은 모든 트래픽을 캡처합니다. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow Log Records</a>.</p>
+<p>수집된 VPC Flow Log 데이터를 어떻게 사용할지 생각해 보십시오. 내부 네트워크에서 의도된 트래픽과 의도하지 않은 트래픽의 가시성은 문제 진단을 용이하게 할 수 있습니다. 기본적으로 인터넷 게이트웨이에서 거부된 트래픽을 캡처하면 제한된 값으로 많은 데이터를 저장하고 처리할 수 있습니다. 필요한 경우 언제든지 기능을 활성화한 다음 <a href="https://aws.amazon.com/cloudwatch/pricing/">value your get from CloudWatch</a>를 최적화하기 위해 더 이상 필요하지 않은 경우 기능을 비활성화할 수 있습니다.</p>
+<p><strong>(Optional)</strong> Create a flow log for your VPC</p>
+<p><strong>Note:</strong> CloudFormation 스크립트에 의해 다음 단계가 완료되었습니다.</p>
+<ol>
+<li>Amazon VPC 콘솔을 열고 링크를 클릭하여 VPC로 이동합니다. <a href="https://console.aws.amazon.com/vpc/home?#vpcs:sort=VpcId">link</a>.</li>
+<li>ExampleCorp VPC를 선택한 다음 작업, flow log 생성을 선택합니다.</li>
+<li>Filter의 경우 풀다운 목록에서 All을 선택하여 허용 및 거부된 트래픽을 기록합니다.</li>
+<li>For Destination, 기본 CloudWatch Logs로 보내기를 선택합니다.</li>
+<li>For Destination log group, 흐름 로그를 게시할 CloudWatch Logs에 로그 그룹의 이름을 입력합니다. 존재하지 않는 로그 그룹의 이름을 지정하면 로그 그룹 생성을 시도합니다. Destination log group* 아래의 텍스트 상자에 ExampleCorpVPC를 입력합니다.</li>
+<li>For IAM role select the role with name in the form (your stack name)-FlowLogsRole-(random string). 이것은 CloudWatch 로그에 로그를 게시할 수 있는 권한을 가진 CloudFormation 스크립트에서 생성되었습니다.</li>
+<li>Choose Create.</li>
+<li>Open the CloudWatch console and navigate to Logs by clicking on this <a href="https://console.aws.amazon.com/cloudwatch/home?#logs:">link</a>.</li>
+</ol>
+<p><strong>What have we accomplished?</strong></p>
+<p>이제 모든 인스턴스가 CloudWatch Logs에 로깅되고 있으며 VPC도 CloudWatch Logs에 로깅됩니다. 인스턴스와 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">AWS services 가 CloudWatch에 지표를 게시하고 있습니다</a> 애플리케이션 및 워크로드는 <a href="https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html">AWS X-Ray</a>와의 통합을 통해 추적을 제공합니다. 사용 가능한 원격 분석을 수집하고 있으며 이제 분석하고 활용할 때입니다.</p>
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/webbasedworkshop/lab1/" title="실습2. 시나리오 설정"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/webbasedworkshop/lab3/" title="실습4. 로그에서 metrics 생성" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/webbasedworkshop/js/clipboard.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/perfect-scrollbar.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/perfect-scrollbar.jquery.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/jquery.sticky.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/featherlight.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/highlight.pack.js?1622006050"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/webbasedworkshop/js/modernizr.custom-3.6.0.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/learn.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/hugo-learn.js?1622006050"></script>
+
+    <link href="/webbasedworkshop/mermaid/mermaid.css?1622006050" rel="stylesheet" />
+    <script src="/webbasedworkshop/mermaid/mermaid.js?1622006050"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

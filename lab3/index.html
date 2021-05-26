@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="description" content="Hugo를 이용한 워크샵 문서 만들기">
+<meta name="author" content="Hyuna Jung">
+
+    <link rel="icon" href="/webbasedworkshop/images/favicon.png" type="image/png">
+
+    <title>실습4. 로그에서 metrics 생성 :: Web-based 워크샵 문서 만들기</title>
+
+    
+    <link href="/webbasedworkshop/css/nucleus.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/fontawesome-all.min.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/hybrid.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/featherlight.min.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/perfect-scrollbar.min.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/auto-complete.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/atom-one-dark-reasonable.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/theme.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/hugo-theme.css?1622006050" rel="stylesheet">
+    
+      <link href="/webbasedworkshop/css/theme-aws.css?1622006050" rel="stylesheet">
+    
+
+    <script src="/webbasedworkshop/js/jquery-3.3.1.min.js?1622006050"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/webbasedworkshop/lab3/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/webbasedworkshop">
+	<img src="/webbasedworkshop/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/webbasedworkshop/js/lunr.min.js?1622006050"></script>
+<script type="text/javascript" src="/webbasedworkshop/js/auto-complete.js?1622006050"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/webbasedworkshop\/";
+    
+</script>
+<script type="text/javascript" src="/webbasedworkshop/js/search.js?1622006050"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab-intro/" title="소개" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab-intro/">
+          <b>0. </b>소개
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab0/" title="실습1. CloudWatch Handson Lab" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab0/">
+          <b>1. </b>실습1. CloudWatch Handson Lab
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab1/" title="실습2. 시나리오 설정" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab1/">
+          <b>2. </b>실습2. 시나리오 설정
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab2/" title="실습3. 원격 분석 수집" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab2/">
+          <b>3. </b>실습3. 원격 분석 수집
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab3/" title="실습4. 로그에서 metrics 생성" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/webbasedworkshop/lab3/">
+          <b>4. </b>실습4. 로그에서 metrics 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab4/" title="실습5. 알람 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab4/">
+          <b>5. </b>실습5. 알람 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab5/" title="실습6. 응답 자동화" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab5/">
+          <b>6. </b>실습6. 응답 자동화
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab6/" title="실습7. 실습환경 클린업" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab6/">
+          <b>7. </b>실습7. 실습환경 클린업
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/webbasedworkshop/credits/"><i class='fas fa-fw fa-bullhorn'></i> 크레딧</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/webbasedworkshop/'>홈</a> > 실습4. 로그에서 metrics 생성
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#로그에서-metrics-생성">로그에서 metrics 생성</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              실습4. 로그에서 metrics 생성
+            </h1>
+          
+
+        
+
+
+
+
+	<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="로그에서-metrics-생성">로그에서 metrics 생성</h3>
+<p>전통적인 애플리케이션 개발은 로그 형태로 이벤트를 내 보냅니다. CloudWatch를 사용하면 패턴 일치를 사용하여 로그에서 지표를 생성할 수 있습니다. 관찰된 로그 메시지를 기반으로 지표를 생성함으로써 대시 보드를 통해 지표 데이터의 시각화를 제공하고 지표가 기준 임계 값을 위반할 때 경고를 제공함으로써 CloudWatch 로그의 가치를 높일 수 있습니다. AWS CLI 또는 API를 사용하여 다음을 수행할 수 있습니다. <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">publish your own custom metrics</a>.</p>
+<p>Metric filters are created using the same <a href="https://docs.aws.amazon.com/console/cloudwatch/logs/patternSyntax">filter and pattern syntax</a> that is used when <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">browsing log streams in the console</a>.</p>
+<p><strong><em>Create a Confidence metric</em></strong></p>
+<p>비즈니스 결과 모니터링 Titus Grone은 ExampleCorp 회사가 고객을 만족시키고 있다는 것을 알고 싶어 합니다. 고객의 피드백에 따르면 업로드 이미지에서 식별된 항목의 정확도가 잘 작동될 때 가장 큰 만족감을 얻고, 그렇지 않을 때 좌절감을 느낀다고 합니다. Focus groups은 잘못 식별된(신뢰도가 낮은) 개체가 없는 것이 더 낫다는 것을 나타냅니다.</p>
+<p>그는 ExampleCorp 응용 프로그램이 얼마나 정확한지 측정하기 위해 이미지 인식 신뢰 수준을 추적하려고 합니다. 그는 이 정보를 사용하여 개발 노력에 집중할 위치를 결정할 것입니다.</p>
+<p><strong>4.1 Create the Log Metric</strong></p>
+<ol>
+<li>Navigate to the CloudWatch <strong>Logs</strong> dashboard at this <a href="https://console.aws.amazon.com/cloudwatch/home#logs:">link</a>.</li>
+<li>In the contents pane, select the <strong>application.log</strong> group by clicking on the radio button next to it, and then choose Create Metric Filter. <img src="images/Aspose.Words.c0e37e3b-bc2f-432e-97a1-de93a0d3684d.001.jpeg" alt="Create Metric Filter">
+<ol>
+<li>On the <strong>Define Logs Metric Filter</strong> screen, for <strong>Filter Pattern</strong>, type:</li>
+<li>[logType, myTimestamp, severity, delim1, delim2, type, action, for, Image, imgNum, Name, imgTags, Confidence, cValue]</li>
+<li>To test your filter pattern, for <strong>Select Log Data to Test</strong>, select the log group to test the metric filter against, and then choose Test Pattern.</li>
+<li>Under <strong>Results</strong>, CloudWatch Logs displays a message showing how many occurrences of the filter pattern were found in the log file. To see detailed results, click Show test results.</li>
+<li>Choose <strong>Assign Metric</strong> <img src="images/Aspose.Words.c0e37e3b-bc2f-432e-97a1-de93a0d3684d.002.jpeg" alt="Define Log Metric"></li>
+</ol>
+</li>
+<li>On the <strong>Create Metric Filter and Assign a Metric</strong> screen,
+<ol>
+<li>For Filter Name type <em>confidenceLevels</em></li>
+<li>Under <strong>Metric Details</strong>, for <strong>Metric Namespace</strong>, type <em>ApplicationLogMetrics</em></li>
+<li>For <strong>Metric Name</strong>, type <em>cValue</em></li>
+<li>Choose <strong>Show advanced metric settings</strong></li>
+<li>For <strong>Metric Value</strong> choose <em>$cValue</em></li>
+<li>Leave the <strong>Default Value</strong> undefined, and then choose <strong>Create Filter</strong>. <img src="images/Aspose.Words.c0e37e3b-bc2f-432e-97a1-de93a0d3684d.003.jpeg" alt="Assign Metric"></li>
+</ol>
+</li>
+</ol>
+<p><strong>4.2 Review the resulting metrics</strong></p>
+<ol>
+<li>Navigate to metrics in the left side navigation bar of the CloudWatch console or by clicking this <a href="https://console.aws.amazon.com/cloudwatch/home?#metricsV2:">link</a>.</li>
+<li>Under <strong>Custom Namespaces</strong> you will see your <strong>ApplicationLogMetrics</strong> namespace.
+<ol>
+<li>Chose <strong>Metrics with no dimensions</strong></li>
+<li>Then choose <strong>Metrics with no dimensions</strong></li>
+<li>Then select <strong>cValue</strong></li>
+</ol>
+</li>
+<li>Choose the <strong>Graphed Metrics</strong> tab and examine the differences in reported values when you change the <strong>Statistic</strong> in use by selecting alternatives from the pull down list beneath it.</li>
+<li>Change the <strong>Period</strong> to <strong>10 Seconds</strong> and the <strong>Statistic</strong> to <strong>Average</strong> and examine the differences in reported values.</li>
+</ol>
+<p><strong>4.3 Create a dashboard</strong></p>
+<ol>
+<li>Choose Actions in to top right corner of the page and choose Add to dashboard</li>
+<li>In the Add to dashboard dialog
+<ol>
+<li>Under Select a dashboard choose Create new and enter ExampleCorp in the Dashboard name text box, and then choose the check mark icon next to the text box to confirm your choice.</li>
+<li>Under Select a widget type choose Stacked area</li>
+<li>Under Customize widget title replace the prepopulated value cValue with confidence</li>
+<li>Choose Add to dashboard</li>
+</ol>
+</li>
+<li>On the Dashboards page, choose Save dashboard</li>
+</ol>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/webbasedworkshop/lab2/" title="실습3. 원격 분석 수집"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/webbasedworkshop/lab4/" title="실습5. 알람 생성" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/webbasedworkshop/js/clipboard.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/perfect-scrollbar.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/perfect-scrollbar.jquery.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/jquery.sticky.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/featherlight.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/highlight.pack.js?1622006050"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/webbasedworkshop/js/modernizr.custom-3.6.0.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/learn.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/hugo-learn.js?1622006050"></script>
+
+    <link href="/webbasedworkshop/mermaid/mermaid.css?1622006050" rel="stylesheet" />
+    <script src="/webbasedworkshop/mermaid/mermaid.js?1622006050"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="description" content="Hugo를 이용한 워크샵 문서 만들기">
+<meta name="author" content="Hyuna Jung">
+
+    <link rel="icon" href="/webbasedworkshop/images/favicon.png" type="image/png">
+
+    <title>실습2. 시나리오 설정 :: Web-based 워크샵 문서 만들기</title>
+
+    
+    <link href="/webbasedworkshop/css/nucleus.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/fontawesome-all.min.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/hybrid.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/featherlight.min.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/perfect-scrollbar.min.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/auto-complete.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/atom-one-dark-reasonable.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/theme.css?1622006050" rel="stylesheet">
+    <link href="/webbasedworkshop/css/hugo-theme.css?1622006050" rel="stylesheet">
+    
+      <link href="/webbasedworkshop/css/theme-aws.css?1622006050" rel="stylesheet">
+    
+
+    <script src="/webbasedworkshop/js/jquery-3.3.1.min.js?1622006050"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/webbasedworkshop/lab1/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/webbasedworkshop">
+	<img src="/webbasedworkshop/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/webbasedworkshop/js/lunr.min.js?1622006050"></script>
+<script type="text/javascript" src="/webbasedworkshop/js/auto-complete.js?1622006050"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/webbasedworkshop\/";
+    
+</script>
+<script type="text/javascript" src="/webbasedworkshop/js/search.js?1622006050"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab-intro/" title="소개" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab-intro/">
+          <b>0. </b>소개
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab0/" title="실습1. CloudWatch Handson Lab" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab0/">
+          <b>1. </b>실습1. CloudWatch Handson Lab
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab1/" title="실습2. 시나리오 설정" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/webbasedworkshop/lab1/">
+          <b>2. </b>실습2. 시나리오 설정
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab2/" title="실습3. 원격 분석 수집" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab2/">
+          <b>3. </b>실습3. 원격 분석 수집
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab3/" title="실습4. 로그에서 metrics 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab3/">
+          <b>4. </b>실습4. 로그에서 metrics 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab4/" title="실습5. 알람 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab4/">
+          <b>5. </b>실습5. 알람 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab5/" title="실습6. 응답 자동화" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab5/">
+          <b>6. </b>실습6. 응답 자동화
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/webbasedworkshop/lab6/" title="실습7. 실습환경 클린업" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/webbasedworkshop/lab6/">
+          <b>7. </b>실습7. 실습환경 클린업
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/webbasedworkshop/credits/"><i class='fas fa-fw fa-bullhorn'></i> 크레딧</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/webbasedworkshop/'>홈</a> > 실습2. 시나리오 설정
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#시나리오-설정">시나리오 설정</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              실습2. 시나리오 설정
+            </h1>
+          
+
+        
+
+
+
+
+	<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="시나리오-설정">시나리오 설정</h3>
+<p><strong>ExampleCorp 요구 사항 검토 및 모니터링 계획 수립</strong></p>
+<p><strong>2.1 ExampleCorp [가상] 시나리오 Review</strong></p>
+<p>실습에서는 가상 회사의 모의 워크로드를 사용하여 AWS에서 작업을 수행하는 방법을 알아봅니다. 이 실습에서 사용되는 애플리케이션에 대한 자세한 내용은 이 링크의 GitHub에서 찾을 수 있습니다.</p>
+<p><strong>About Us:</strong>  ExampleCorp는 간단한 아이디어에서 시작되었습니다.: &quot;사진은 천 단어의 가치가 있습니다&quot;. 우리는 사용자가 그 사진이 얼마나 가치가 있는지 알 수 있도록 도와줍니다. 사용자는 공유하는 사진에서 발견한 내용을 기반으로 매일 수천 개의 연결을 만듭니다. 우리는 사진을 공유하고 그 안에 있는 것을 식별 할 수 있도록 더 빠르고 쉽게 만들고 싶습니다.</p>
+<p><strong>Our App:</strong>  ExampleCorp에는 하나의 기본 애플리케이션이 있습니다. – 기계 학습을 통해 사용자가 업로드한 이미지의 콘텐츠에 태그를 지정하는 사진 라이브러리입니다. 애플리케이션을 통해 사용자는 자신과 친구의 사진을 업로드하여 자신이 닮은 유명인을 확인하고 업로드한 사진에서 유명인을 찾을 수 있습니다. 우리는 &amp;gt;500만 명의 이상의 사용자가 있습니다. (500,000 active daily).</p>
+<p><strong>Our Architecture:</strong>  ExampleCorp 애플리케이션은 MySQL 데이터베이스가 있는 간단한 Ruby on Rails(루비(Ruby)라는 코딩 언어로 작성된, 대단히 인기가 많은 오픈소스 웹 어플리케이션 프레임워크) 앱 입니다. CloudFormation을 사용하여 EC2 인스턴스의 VPC에서 시작된 두 개의 Docker 컨테이너(애플리케이션 및 데이터베이스)로 설치됩니다. 사용자는 이미지를 업로드하고 백그라운드 작업은 이미지를 분석하고 메타 데이터를 수집합니다. 이러한 작업은 AWS Rekognition을 사용하여 사용된 카메라의 레이블, 텍스트 및 유명인, EXIF 메타 데이터를 감지합니다. 애플리케이션 코드 배포는 현재 위치에서 업데이트를 사용합니다.</p>
+<p><strong>Our Operating Model:</strong> ExampleCorp 팀은 주로 &quot;DevOps&quot; 그러나 클라우드 인프라 팀과 애플리케이션 팀간에 업무가 분리되어 있습니다. 애플리케이션 코드는 하루에 한 번 CI/CD 파이프 라인을 통해 푸시됩니다. 플랫폼 엔지니어링 팀은 인프라 변경 사항을 테스트하고 배포합니다. 운영 모델은 새로운 기능의 빠른 배포와 사용자 경험에 대한 빠른 피드백에 중점을 둡니다. 애플리케이션 성능 및 가용성은 신속한 가입에 필수적이며, 이는 자금 평가를 주도합니다.</p>
+<p><strong>Our Team:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Title</strong></th>
+<th><strong>Name</strong></th>
+<th><strong>Requirements</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CEO</td>
+<td>Ada Lovelace</td>
+<td>자금 확보를 위해 사용자 기반을 늘리고 지속 가능한 수익 흐름을 구축하는 데 집중했습니다.</td>
+</tr>
+<tr>
+<td>CIO</td>
+<td>Bertrand Russell</td>
+<td>IT 운영, 릴리스 목표 및 애플리케이션 가용성에 대한 효율성 및 성능 목표에 중점을 둡니다.</td>
+</tr>
+<tr>
+<td>Infrastructure Director</td>
+<td>Alan Turing</td>
+<td>주요 관심사는 인프라의 보안과 안정성입니다.</td>
+</tr>
+<tr>
+<td>Application Director</td>
+<td>Grace Hopper</td>
+<td>production이 고객을 즐겁게하고 기능이 올바른 기능인지 확인하고 가능한 한 빨리 production에 전달되고 있습니다.</td>
+</tr>
+<tr>
+<td>InfoSec Director</td>
+<td>Elizabeth Feinler</td>
+<td>빠른 제공으로 인한 보안 위협, 보안 및 릴리스 타임 라인 간의 경쟁 우선 순위.</td>
+</tr>
+<tr>
+<td>DevOps Engineer</td>
+<td>Blaise Pascal</td>
+<td>기능 제공 및 애플리케이션 보안에 영향을 미치는 플랫폼 변경, 애플리케이션 문제 및 거버넌스 요구 사항에 대한 통찰력을 원합니다.</td>
+</tr>
+<tr>
+<td>Site Reliability Engineer</td>
+<td>Charles Babbage</td>
+<td>항상 페이저로 호출되는 것을 중지하고 시스템 안정성을 더 잘 이해하기를 원합니다.</td>
+</tr>
+<tr>
+<td>Security Engineer</td>
+<td>Edsger Dijkstra</td>
+<td>가장 큰 과제 : 시장 출시 속도는 때때로 보안 문제가 post-go-live 이후에만 발생한다는 것을 의미합니다.</td>
+</tr>
+<tr>
+<td>User Experience Lead</td>
+<td>Cindy Logan-Matthew</td>
+<td>가장 큰 과제 : ExampleCorp 구현 능력을 초과하는 속도로 증가하는 사용자 기능 요청.</td>
+</tr>
+<tr>
+<td>Financial Analyst</td>
+<td>George Boole</td>
+<td>가장 큰 문제는 다양한 운영 비용과 빠른 사용률 확장으로 인해 비용 관리가 어렵다는 것입니다.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2.2 모니터링 계획 수립</strong></p>
+<p>모니터링의 두 가지 목표는 다음과 같습니다.</p>
+<ul>
+<li>상황 인식을 달성하여 시기 적절하고 효과적인 대응을 제공하고</li>
+<li>사전 조치 과정을 가능하게 하는 비즈니스, 개발 및 운영에 대한 통찰력을 얻습니다.</li>
+</ul>
+<p>요구 사항을 이해하려면 참여가 필요합니다. 사용자는 자신이 필요하다고 생각하는 것이나 가능한 것이 무엇인지 자주 질문합니다. &quot;5 Whys&quot; technique을 적용하고 그들이 요구하는 것이 실제로 필요한 것이라고 가정하지 마십시오. 팀과의 운영 참여를 통해 달성하려는 목표를 이해하고 모니터링 목표를 달성하기 위한 옵션을 결정할 수 있습니다.</p>
+<p>고려사항:</p>
+<ul>
+<li>페르소나 및 요구 사항 : 누가 모니터링 결과를 소비합니까? 그들의 목표는 무엇입니까?</li>
+<li>시스템 아키텍처 및 통찰력 : 구성 요소는 무엇입니까? 어떤 원격 분석을 수집해야 합니까?</li>
+<li>테스트 임계 값 : 좋은 것은 어떤 것입니까? 어떻게 측정됩니까?</li>
+<li>보고 : Dashboards에서 on-demand &quot;pull&quot; 을 통해 어떤 정보를 제공해야 합니까? 이해 관계자는 누구입니까?</li>
+<li>경고 및 조치 : 비즈니스 결과에 맞는 경고는 무엇입니까? 경고가 발생하면 어떤 조치를 취해야 합니까?</li>
+</ul>
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/webbasedworkshop/lab0/" title="실습1. CloudWatch Handson Lab"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/webbasedworkshop/lab2/" title="실습3. 원격 분석 수집" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/webbasedworkshop/js/clipboard.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/perfect-scrollbar.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/perfect-scrollbar.jquery.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/jquery.sticky.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/featherlight.min.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/highlight.pack.js?1622006050"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/webbasedworkshop/js/modernizr.custom-3.6.0.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/learn.js?1622006050"></script>
+    <script src="/webbasedworkshop/js/hugo-learn.js?1622006050"></script>
+
+    <link href="/webbasedworkshop/mermaid/mermaid.css?1622006050" rel="stylesheet" />
+    <script src="/webbasedworkshop/mermaid/mermaid.js?1622006050"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>
